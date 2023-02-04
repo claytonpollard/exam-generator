@@ -1,0 +1,18 @@
+3
+***
+3
+***
+\noaddpoints
+Fermat's little theorem states that if $p$ is a prime number, then for any positive integer (whole number) $a$, the number $a^p-a$ is a multiple of $p$.
+
+For example: $2^7-2=126$, which is a multiple of 7 as $126\div7=18$.
+
+From the theorem, it can also be said that if $a$ is not divisible by $p$, then $a^{p-1}\div p$ will result in a remainder of 1.
+
+\begin{parts}
+    \part[1] Using Fermat's little theorem, find the remainder for $2^{12}\div13$.
+    \fillwithgrid{2cm}
+    \part[2] Hence or otherwise, find the remainder of \ $2^{14}\div13$ \ if any.
+    \fillwithgrid{5cm} 
+\end{parts}
+\addpoints

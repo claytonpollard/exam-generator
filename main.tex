@@ -1,0 +1,29 @@
+\documentclass[12pt,addpoints]{exam}
+\input{include/style.tex}
+
+% Replace include/crest.png with your school crest
+\newcommand{\school}{% Type in the name of your school
+School of Rock
+}
+\newcommand{\course}{% Type in the course name
+Specialist Mathematics
+}
+\newcommand{\taskyear}{% Replace "\the\year{}" with the year, else it will put in the current year
+\the\year{}
+}
+\newcommand{\taskname}{% Type in the task name/number
+Task 1
+}
+\newcommand{\totaltime}{% Type in the total time in minutes
+120 minutes
+}
+
+%\printanswers
+
+\begin{document}
+\sffamily
+\input{include/coverpage.tex}
+\begin{questions}
+\input{questions.tex}
+\end{questions}
+\end{document}

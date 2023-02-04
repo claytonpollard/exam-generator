@@ -1,0 +1,144 @@
+\usepackage{amsmath}
+    \DeclareMathOperator\cis{cis}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+    \pgfplotsset{compat=newest}
+    
+\tikzset{answer/.style={draw,text opacity=0,opacity=0}}
+\let\oldprintanswers\printanswers
+\def\printanswers{\oldprintanswers\tikzset{answer/.style={text opacity=1,opacity=1,color=red}}}
+
+\usepackage{parskip}
+
+\usepackage{caption}
+\DeclareCaptionFormat{empty}{#1}
+\renewcommand*\figurename{\sffamily\bfseries Figure}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\usepackage{lastpage}
+\footer{}{\iflastpage{\sffamily page~\textbf{\thepage}~of~\textbf{\pageref{LastPage}~--~\textbf{\textit{end of booklet}}}}{\sffamily page~\textbf{\thepage}~of~\textbf{\pageref{LastPage}}}}{\iflastpage{}{\oddeven{\sffamily PLEASE TURN OVER}{}}}
+
+\usepackage{xcolor}
+\colorgrids
+\definecolor{GridColor}{gray}{0.7}
+
+\makeatletter
+\def\fillwithgrid#1{
+    \vspace{1ex}
+    \fullwidth{
+  \begingroup
+  \ifhmode
+    \par
+  \fi
+  \hrule height \z@
+  \nobreak
+  \setlength{\@tempdima}{\gridsize}
+  \addtolength{\@tempdima}{\gridlinewidth}
+  \setlength{\@tempdimb}{\gridsize}
+  \addtolength{\@tempdimb}{-\gridlinewidth}
+  \setbox0=\hbox{%
+    \rlap{\vrule height \gridsize depth \gridlinewidth width \gridlinewidth}%
+    \rlap{\vrule height \gridsize depth -\@tempdimb width \@tempdima}%
+    \vrule height 0pt depth \gridlinewidth width \@tempdima
+    \llap{\vrule height \gridsize depth \gridlinewidth width \gridlinewidth}%
+  }%
+  \wd0=\gridsize
+  \dp0=0pt
+  \setbox1=\hbox to \textwidth{%
+    \color@begingroup
+    \if@colorgrids
+      \color{GridColor}%
+    \fi
+    \hskip \@totalleftmargin \leaders\copy0\hfil \kern\gridlinewidth
+    \color@endgroup
+  }
+  \cleaders \copy1 \vskip #1 \kern \gridlinewidth \hbox{}%
+  \endgroup
+  }
+      \vspace{-1ex}\droppoints
+}
+
+\renewenvironment{solutionorgrid}[1][0pt]%
+  {%
+    \@insolutiontrue % cancelled by the end of the environment
+    \@addpointsfalse % cancelled by the end of the environment
+    \ifprintanswers
+      \begingroup
+      \Solution@Emphasis
+      \begin{TheSolution}%
+    \else
+      \ifcancelspace
+        % Do nothing
+      \else
+        \par
+        \penalty 0
+        \fillwithgrid{#1}%
+      \fi
+      \setbox\z@\vbox\bgroup
+    \fi
+  }{%
+    \ifprintanswers
+      \end{TheSolution}%
+      \endgroup
+                \droppoints
+    \else
+      \egroup
+    \fi
+  }%
+\makeatother
+
+
+\renewcommand{\d}{\mathrm{d}}
+
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        margin=2.5cm,
+        right=2cm,
+        bottom=3cm,
+        headheight=14.5pt,
+        marginparsep=0mm
+    }
+
+\marksnotpoints
+\qformat{\textbf{Question~\thequestion}\qquad\qquad(\totalpoints{}~\points)\hfill\vrule depth 3ex width 0pt}
+\setlength{\rightpointsmargin}{3cm}
+\pointsdroppedatright
+\pointformat{(\thepoints)}
+
+\renewcommand{\questionshook}{
+    \leftmargin=0pt
+    \labelwidth=-\labelsep
+}
+
+\usepackage{enumitem}
+
+\renewcommand{\subpartlabel}{(\thesubpart)}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Solution:}~}
+\SolutionEmphasis{\color{red}\sffamily\small}
+
+\usepackage{tkz-euclide}
+
+\newcommand{\blankpage}{
+    \pagebreak
+    \null
+    \vfill
+    \begin{center}
+        BLANK PAGE
+    \end{center}
+    \vfill
+    \pagebreak
+}
+
+\newcommand{\linedpage}{
+    \pagebreak
+    \begin{framed}
+        \lines{26}
+    \end{framed}
+}
+
+\usepackage{siunitx}
