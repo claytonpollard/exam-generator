@@ -20,6 +20,6 @@ After running `generate.py` it will create a `questions.tex` file containing all
 
 Compile `main.tex` to generate your exam.
 
-To change the formatting of the exam, simply edit `main.tex`, `/include/coverpage.tex`/, `/include.style.tex` and `/include/crest.png`.
+To change the formatting of the exam, simply edit `main.tex`, `/include/coverpage.tex`/, `/include/style.tex` and `/include/crest.png`.
 
 The provided exam template is from my [SACE mathematics exam template](https://github.com/claytonpollard/latex-templates/tree/master/sace-mathematics-exam)
