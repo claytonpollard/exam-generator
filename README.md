@@ -1,6 +1,6 @@
 Here is a script that uses python and LaTeX to generate an exam.
 
-It randomly selects questions adding to the totals provided for each topic in `questions.xlsx`.
+Now you can choose how many marks for each difficulty in `questions.xlsx` and it will randomly select questions adding to the totals provided for each topic and level of difficulty. After selecting the questions it will also sort from easiest to hardest within each topic.
 
 You need to add questions to the question bank under `/questions/` sorted by topic. These topics **must** match the the topics in the first column of `questions.xlsx`.
 
@@ -13,8 +13,6 @@ When adding questions the formatting is as follows:
 ***
 Question written in LaTeX.
 ```
-
-Currently it only sorts questions from easiest (1) to hardest (3), but in future I might add the ability to choose the number of marks for each difficulty.
 
 After running `generate.py` it will create a `questions.tex` file containing all the randomly chosen questions.
 
